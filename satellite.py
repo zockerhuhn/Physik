@@ -10,10 +10,10 @@ from Object import Object
 atr = []
 obj = []
 
-deltaT = 60
+deltaT = 0.0001
 G = 6.67430e-11
 
-satellite = Object(x=400000+6.371e6, y=0, mass=4500)
+satellite = Object(x=7500+6.371e6, y=0, mass=4500)
 obj.append(satellite)
 earth = Attractor(x=0, y=0, mass=5.972e24)
 atr.append(earth)
@@ -21,18 +21,24 @@ atr.append(earth)
 def step():
   for i in obj:
     i.move(deltaT)
+    # if  7500+6.371e6 - i.x <= 0.01:
+    #   print(deltaT*len(i.xLog)) #8586.93 #3889.226
     for z in atr:
       delta_x = z.x - i.x
       delta_y = z.y - i.y
       angle_radians = math.atan2(delta_y, delta_x)
       distance = math.sqrt(delta_x**2 + delta_y**2)
+      # area = (i.x * i.xLog[i.xLog.index(i.x)-1])/2
+      # print(area)
+      # if abs(i.y) <= 1 and len(i.xLog) >= 50:
+      #   print(distance, i.y) #11747852.242334977 #4311983.435812522
       z.update_force(G=G, objMass=i.mass, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
-satellite.yVelocity = 10660
-for e in range(8000000):
+satellite.yVelocity = 7100
+for e in range(75*600000):
   step()
-  if e%10000 == 0:
+  if e%100000 == 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
   #sleep(0.5)
 fig, axs = plt.subplots(nrows=1, ncols=1)
