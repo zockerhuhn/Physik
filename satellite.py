@@ -27,11 +27,10 @@ def step():
       angle_radians = math.atan2(delta_y, delta_x)
       distance = math.sqrt(delta_x**2 + delta_y**2)
       z.update_force(G=G, objMass=i.mass, distance=abs(distance))
-      print(z.force, distance)
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
-satellite.yVelocity = 9000
-for e in range(2000):
+satellite.yVelocity = 10660
+for e in range(8000000):
   step()
   if e%10000 == 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
