@@ -1,0 +1,15 @@
+entrypoint = "satellite.py"
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+
+[unitTest]
+language = "python3"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["time python3", "satellite.py"]
+deploymentTarget = "cloudrun"
