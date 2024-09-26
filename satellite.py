@@ -35,10 +35,10 @@ def step():
       z.update_force(G=G, objMass=i.mass, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
-satellite.yVelocity = 7100
+satellite.yVelocity = 7660
 for e in range(2500):
   step()
-  if e%100000 == 0:
+  if e%100 == 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
   #sleep(0.5)
 fig, axs = plt.subplots(nrows=1, ncols=1)
