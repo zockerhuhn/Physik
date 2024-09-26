@@ -1,9 +1,9 @@
 name: py
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
   push:
-    branch:
+    branches:
       - 'main'
 
 jobs:
