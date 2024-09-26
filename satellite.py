@@ -10,7 +10,7 @@ from Object import Object
 atr = []
 obj = []
 
-deltaT = 60
+deltaT = 0.1
 G = 6.67430e-11
 
 satellite = Object(x=400000+6.371e6, y=0, mass=4500)
@@ -36,9 +36,9 @@ def step():
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
 satellite.yVelocity = 7660
-for e in range(250000):
+for e in range(25000000*600):
   step()
-  if e%100 == 0:
+  if e%10000000 == 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
   #sleep(0.5)
 fig, axs = plt.subplots(nrows=1, ncols=1)
