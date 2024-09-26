@@ -10,10 +10,10 @@ from Object import Object
 atr = []
 obj = []
 
-deltaT = 0.0001
+deltaT = 60
 G = 6.67430e-11
 
-satellite = Object(x=7500+6.371e6, y=0, mass=4500)
+satellite = Object(x=400000+6.371e6, y=0, mass=4500)
 obj.append(satellite)
 earth = Attractor(x=0, y=0, mass=5.972e24)
 atr.append(earth)
@@ -36,7 +36,7 @@ def step():
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
 satellite.yVelocity = 7100
-for e in range(75*600000):
+for e in range(2500):
   step()
   if e%100000 == 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
@@ -48,7 +48,7 @@ t = np.arange(0, len(satellite.xLog)*deltaT, deltaT)
 ax1.plot(satellite.xLog, satellite.yLog)
 #ax1.plot(t, satellite.xLog, label="S(x)")
 ax1.set_ylabel("Position in m")
-ax1.legend()
+#ax1.legend()
 
 #ax2.plot(t, satellite.yVLog, label="v(y)")
 #ax2.plot(t, satellite.xVLog, label="v(x)")
