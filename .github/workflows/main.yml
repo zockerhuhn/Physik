@@ -33,6 +33,7 @@ jobs:
           git config --local user.email "action[bot]@github.com"
           git config --local user.name "github-actions[bot]"
           git add graph.png
+          git add log.txt
           git commit -m "[bot] updated graph.png"
         shell: bash
       - name: Push Commit
