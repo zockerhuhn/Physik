@@ -46,7 +46,7 @@ for e in range(Settings.amountOfSteps):
   #sleep(0.5)
   if e%Settings.saveToLogEveryNthStep== 0 and e > 0 and Settings.saveToLogEveryNthStep > 0:
     with open('log.txt', 'a') as logFile:
-      for i in range(saveToLogEveryNthStep):
+      for i in range(Settings.saveToLogEveryNthStep):
         logFile.write(f"x: {satellite.xLog[(e-Settings.saveToLogEveryNthStep)+i+1]}, y: {satellite.yLog[(e-Settings.saveToLogEveryNthStep)+i+1]}, Step: {i}")
     
 fig, axs = plt.subplots(nrows=1, ncols=1)
