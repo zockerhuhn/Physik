@@ -19,6 +19,8 @@ obj.append(satellite)
 earth = Attractor(x=0, y=0, mass=5.972e24)
 atr.append(earth)
 
+open('log.txt', 'w')
+
 def step():
   for i in obj:
     i.move(deltaT)
@@ -41,6 +43,11 @@ for e in range(Settings.amountOfSteps):
   if e%Settings.printEveryNthStep== 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
   #sleep(0.5)
+  if e%Settings.saveToLogEveryNthStep== 0:
+    with open('log.txt', 'a') as logFile:
+      for log in range(saveToLogEveryNthStep):
+        
+    
 fig, axs = plt.subplots(nrows=1, ncols=1)
 ax1= axs
 t = np.arange(0, len(satellite.xLog)*deltaT, deltaT)
