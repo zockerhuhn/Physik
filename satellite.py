@@ -14,7 +14,7 @@ obj = []
 deltaT = Settings.deltaT
 G = 6.67430e-11
 
-satellite = Object(x=Settings.satelliteStartingX, y=Settings.satelliteStartingY, yVelocity=Settings.satelliteYStartingVelocity, xVelocity=Settings.satelliteXStartingVelocity)
+satellite = Object(x=Settings.satelliteStartingX, y=Settings.satelliteStartingY, yVelocity=Settings.satelliteStartingYVelocity, xVelocity=Settings.satelliteStartingXVelocity)
 obj.append(satellite)
 earth = Attractor(x=0, y=0, mass=5.972e24)
 atr.append(earth)
