@@ -6,14 +6,15 @@ import numpy as np
 
 from Attractor import Attractor
 from Object import Object
+import Settings
 
 atr = []
 obj = []
 
-deltaT = 0.1
+deltaT = Settings.deltaT
 G = 6.67430e-11
 
-satellite = Object(x=400000+6.371e6, y=0, mass=4500)
+satellite = Object(x=Settings.satelliteStartingX, y=Settings.satelliteStartingY, yVelocity=Settings.satelliteYStartingVelocity, xVelocity=Settings.satelliteXStartingVelocity)
 obj.append(satellite)
 earth = Attractor(x=0, y=0, mass=5.972e24)
 atr.append(earth)
@@ -35,10 +36,9 @@ def step():
       z.update_force(G=G, objMass=i.mass, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
-satellite.yVelocity = 7660
-for e in range(150*600):
+for e in range(Settings.amountOfSteps):
   step()
-  if e%1000== 0:
+  if e%Settings.printEveryNthStep== 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
   #sleep(0.5)
 fig, axs = plt.subplots(nrows=1, ncols=1)
