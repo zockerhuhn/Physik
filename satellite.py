@@ -44,7 +44,7 @@ for e in range(Settings.amountOfSteps):
   if e%Settings.printEveryNthStep== 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
   #sleep(0.5)
-  if e%Settings.saveToLogEveryNthStep== 0 and e > 0 and settings.saveToLogEveryNthStep > 0:
+  if e%Settings.saveToLogEveryNthStep== 0 and e > 0 and Settings.saveToLogEveryNthStep > 0:
     with open('log.txt', 'a') as logFile:
       for i in range(saveToLogEveryNthStep):
         logFile.write(f"x: {satellite.xLog[(e-Settings.saveToLogEveryNthStep)+i+1]}, y: {satellite.yLog[(e-Settings.saveToLogEveryNthStep)+i+1]}, Step: {i}")
