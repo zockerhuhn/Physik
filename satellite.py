@@ -38,8 +38,8 @@ def step():
 
 if Settings.saveToLogEveryNthStep > 0:
   with open('log.txt', 'w') as logFile:
-    logFile.write(f"x: {satellite.x}, y: {satellite.y}"
-for e in range(0, int(Settings.amountOfSteps)):
+    logFile.write(f"x: {satellite.x}, y: {satellite.y}")
+for e in range(Settings.amountOfSteps):
   step()
   if e%Settings.printEveryNthStep== 0:
     print(f"x: {satellite.x}, y: {satellite.y}, vx: {satellite.xVelocity}, vy: {satellite.yVelocity}")
