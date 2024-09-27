@@ -33,7 +33,7 @@ def step():
       # print(area)
       # if abs(i.y) <= 1 and len(i.xLog) >= 50:
       #   print(distance, i.y) #11747852.242334977 #4311983.435812522
-      z.update_force(G=G, objMass=i.mass, distance=abs(distance))
+      z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
 if Settings.saveToLogEveryNthStep > 0:
