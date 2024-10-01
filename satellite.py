@@ -36,14 +36,15 @@ def step():
       z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
-drawnEarth = Object(y=0, x=6.371e6, xVelocity=0, yVelocity=9820)
-for j in range(1000):
+drawnEarth = Object(y=0, x=6.371e6, xVelocity=0, yVelocity=8160)
+for j in range(100):
   drawnEarth.move(60)
   delta_x = 0 - drawnEarth.x
   delta_y = 0 - drawnEarth.y
   distance = math.sqrt(delta_x**2 + delta_y**2)
   angle_radians = math.atan2(delta_y, delta_x)
   drawnEarth.apply_force(9.82 * math.cos(angle_radians), 9.82 * math.sin(angle_radians), 60)
+  print(drawnEarth.x, drawnEarth.y)
 
 if Settings.saveToLogEveryNthStep > 0:
   with open('log.txt', 'w') as logFile:
