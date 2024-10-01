@@ -1,6 +1,3 @@
-from math import radians
-
-
 class Object:
   x:float
   y:float
