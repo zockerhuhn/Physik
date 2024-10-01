@@ -22,8 +22,8 @@ atr.append(earth)
 def step():
   for i in obj:
     i.move(deltaT)
-    # if  7500+6.371e6 - i.x <= 0.01:
-    #   print(deltaT*len(i.xLog)) #8586.93 #3889.226
+    if  7500+6.371e6 - i.x <= 0.01:
+      print(deltaT*len(i.xLog)) #8586.93 #3889.226
     for z in atr:
       delta_x = z.x - i.x
       delta_y = z.y - i.y
@@ -31,8 +31,8 @@ def step():
       distance = math.sqrt(delta_x**2 + delta_y**2)
       # area = (i.x * i.xLog[i.xLog.index(i.x)-1])/2
       # print(area)
-      # if abs(i.y) <= 1 and len(i.xLog) >= 50:
-      #   print(distance, i.y) #11747852.242334977 #4311983.435812522
+      if abs(i.y) <= 1 and len(i.xLog) >= 50:
+        print(distance, i.y) #11747852.242334977 #4311983.435812522
       z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
