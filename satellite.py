@@ -45,13 +45,13 @@ drawnEarth.xLog = []
 drawnEarth.yLog = []
 drawnEarth.xVLog = []
 drawnEarth.yVLog = []
-for j in range(86):
-  drawnEarth.move(60)
+for j in range(172):
+  drawnEarth.move(30)
   delta_x = 0 - drawnEarth.x
   delta_y = 0 - drawnEarth.y
   distance = math.sqrt(delta_x**2 + delta_y**2)
   angle_radians = math.atan2(delta_y, delta_x)
-  drawnEarth.apply_force(9.82 * math.cos(angle_radians), 9.82 * math.sin(angle_radians), 60)
+  drawnEarth.apply_force(9.82 * math.cos(angle_radians), 9.82 * math.sin(angle_radians), 30)
   #print(drawnEarth.x, drawnEarth.y)
 
 if Settings.saveToLogEveryNthStep > 0:
