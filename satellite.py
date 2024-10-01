@@ -22,7 +22,7 @@ atr.append(earth)
 def step():
   for i in obj:
     i.move(deltaT)
-    if -1 <= i.x <= 1 and y >= 0:
+    if -1 <= i.x <= 1 and x.y >= 0:
       print(deltaT*len(i.xLog)) #8586.93 #3889.226
     for z in atr:
       delta_x = z.x - i.x
