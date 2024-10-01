@@ -45,7 +45,7 @@ drawnEarth.xLog = []
 drawnEarth.yLog = []
 drawnEarth.xVLog = []
 drawnEarth.yVLog = []
-for j in range(87):
+for j in range(86):
   drawnEarth.move(60)
   delta_x = 0 - drawnEarth.x
   delta_y = 0 - drawnEarth.y
