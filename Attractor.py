@@ -11,4 +11,4 @@ class Attractor:
     self.force = (G * self.mass / distance**2)
     if self.force >= 10:
       print(self.force, distance)
-      #raise Exception("crashed")
+      raise Exception("crashed")

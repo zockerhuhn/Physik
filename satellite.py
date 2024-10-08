@@ -10,6 +10,7 @@ import Settings
 
 atr = []
 obj = []
+areaLog = []
 
 deltaT = Settings.deltaT
 G = 6.67430e-11
@@ -26,17 +27,18 @@ satellite.yVLog = []
 def step():
   for i in obj:
     i.move(deltaT)
-    # if -10000 <= i.y <= 10000 and i.x >= 0:
-      # print(deltaT*len(i.xLog), i.y) #8586.93 #3889.226
+    # if -10000 <= i.y <= 10000 and i.x >= 0:   #calc A for 2. b)
+      # print(deltaT*len(i.xLog), i.y)
     for z in atr:
       delta_x = z.x - i.x
       delta_y = z.y - i.y
       angle_radians = math.atan2(delta_y, delta_x)
       distance = math.sqrt(delta_x**2 + delta_y**2)
-      area = (i.x * i.xLog[i.xLog.index(i.x)-1])/2
-      print(area)
-      # if abs(i.y) <= 1000:
-        # print(distance, i.y, i.x, deltaT*len(i.xLog)) #11747852.242334977 #4311983.435812522
+      # area = (distance * math.sqrt((i.xLog[i.xLog.index(i.x)-1]-i.x)**2 + ((i.yLog[i.yLog.index(i.y)-1]-i.y) - i.y)**2))/2 #well this is stupid and doesn't work obv
+      # areaLog.append(area)
+      # print(area)
+      # if abs(i.y) <= 1000:    #calc T for 2. b)
+        # print(distance, i.y, i.x, deltaT*len(i.xLog))
       z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
@@ -73,14 +75,11 @@ t = np.arange(0, len(satellite.xLog)*deltaT, deltaT)
 
 ax1.plot(satellite.xLog, satellite.yLog, label="satellite")
 ax1.plot(drawnEarth.xLog, drawnEarth.yLog, label="earth")
-#ax1.plot(t, satellite.xLog, label="S(x)")
 ax1.set_ylabel("Position in m")
 ax1.legend()
 
-#ax2.plot(t, satellite.yVLog, label="v(y)")
-#ax2.plot(t, satellite.xVLog, label="v(x)")
-#ax2.set_xlabel("Zeit in s")
-#ax2.set_ylabel("Geschwindigkeit in m/s")
-#ax2.legend()
+# ax2.plot(t, areaLog)
+# ax2.set_xlabel("Δt")
+# ax2.set_ylabel("Fläche in m²")
 plt.savefig('graph.png')
 plt.show()
