@@ -1,8 +1,8 @@
 # main.py 
-### schräger wurf mit nur einer Koordinate
+#### schräger wurf mit nur einer Koordinate
 # mainxy.py
-### schräger Wurf
+#### schräger Wurf
 # satellite.py
-### Simulation für Kreisbahnen um die Erde
+#### Simulation für Kreisbahnen um die Erde
 ## Settings.py
-### Einstellung für satellite.py
+#### Einstellung für satellite.py
