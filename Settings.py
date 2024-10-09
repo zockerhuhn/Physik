@@ -3,9 +3,9 @@ satelliteStartingY:float = 0
 satelliteStartingXVelocity = 0
 satelliteStartingYVelocity = 7000
 
-multiplikator = 6000
+multiplikator = 1
 
 deltaT:float = 60 /multiplikator
-amountOfSteps:int =1000 *multiplikator
+amountOfSteps:int =3 *multiplikator
 printEveryNthStep:int = 100 *multiplikator
 saveToLogEveryNthStep:int = 100
