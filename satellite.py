@@ -28,11 +28,11 @@ satellite.yVLog = []
 def step():
   for i in obj:
     i.move(deltaT)
-    if abs(i.y) <= 1000 and i.x <= 0:   #calc a for 2. b)
-      copy = deepcopy(i.yLog)
-      copy.sort(reverse=True)
-      highestPoint = copy[0]
-      print(deltaT*len(i.yLog), i.x, i.y, abs(i.x)-i.xLog[i.yLog.index(highestPoint)])
+    # if abs(i.y) <= 1000 and i.x <= 0:   #calc a for 2. b)
+      # copy = deepcopy(i.yLog)
+      # copy.sort(reverse=True)
+      # highestPoint = copy[0]
+      # print(deltaT*len(i.yLog), i.x, i.y, abs(i.x)-i.xLog[i.yLog.index(highestPoint)])
     for z in atr:
       delta_x = z.x - i.x
       delta_y = z.y - i.y
@@ -41,8 +41,8 @@ def step():
       # area = (distance * math.sqrt((i.xLog[i.xLog.index(i.x)-1]-i.x)**2 + ((i.yLog[i.yLog.index(i.y)-1]-i.y) - i.y)**2))/2 #well this is stupid and doesn't work obv
       # areaLog.append(area)
       # print(area)
-      # if abs(i.y) <= 1000 and x >= 0:    #calc T for 2. b)
-        # print(distance, i.y, i.x, deltaT*len(i.xLog))
+      if abs(i.y) <= 1000 and x >= 0:    #calc T for 2. b)
+        print(distance, i.x, i.y, deltaT*len(i.xLog))
       z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
