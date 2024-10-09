@@ -1,7 +1,7 @@
 satelliteStartingX:float = 7500000#+6.371e6 #7500000
 satelliteStartingY:float = 0
 satelliteStartingXVelocity = 0
-satelliteStartingYVelocity = 7060
+satelliteStartingYVelocity = 7063.877830235492
 
 multiplikator = 100
 
