@@ -41,8 +41,8 @@ def step():
       # area = (distance * math.sqrt((i.xLog[i.xLog.index(i.x)-1]-i.x)**2 + ((i.yLog[i.yLog.index(i.y)-1]-i.y) - i.y)**2))/2 #well this is stupid and doesn't work obv
       # areaLog.append(area)
       # print(area)
-      if abs(i.y) <= 1000 and x >= 0:    #calc T for 2. b)
-        print(distance, i.x, i.y, deltaT*len(i.xLog))
+      if abs(i.y) <= 1000 and i.x >= 0:    #calc T for 2. b)
+        print(i.x, i.y, deltaT*len(i.xLog))
       z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
 
