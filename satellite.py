@@ -28,11 +28,11 @@ satellite.yVLog = []
 def step():
   for i in obj:
     i.move(deltaT)
-    # if abs(i.y) <= 1000 and i.x <= 0:   #calc a for 2. b)
-      # copy = deepcopy(i.yLog)
-      # copy.sort(reverse=True)
-      # highestPoint = copy[0]
-      # print(deltaT*len(i.yLog), i.x, i.y, abs(i.x)-i.xLog[i.yLog.index(highestPoint)])
+    if abs(i.y) <= 1000 and i.x <= 0:   #calc a for 2. b)
+      copy = deepcopy(i.yLog)
+      copy.sort(reverse=True)
+      highestPoint = copy[0]
+      print(deltaT*len(i.yLog), i.x, i.y, abs(i.x)-i.xLog[i.yLog.index(highestPoint)])
     for z in atr:
       delta_x = z.x - i.x
       delta_y = z.y - i.y
