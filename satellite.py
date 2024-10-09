@@ -45,6 +45,7 @@ def step():
         print(i.x, i.y, deltaT*len(i.xLog))
       z.update_force(G=G, distance=abs(distance))
       i.apply_force(z.force * math.cos(angle_radians), z.force * math.sin(angle_radians), deltaT)
+      print(z.force)
 
 drawnEarth = Object(y=0, x=6.371e6, xVelocity=0, yVelocity=8100)
 drawnEarth.xLog = []
