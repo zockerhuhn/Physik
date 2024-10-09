@@ -4,5 +4,5 @@
 #### schräger Wurf
 # satellite.py
 #### Simulation für Kreisbahnen um die Erde
-## Settings.py
+### Settings.py
 #### Einstellung für satellite.py
