@@ -1,11 +1,11 @@
-satelliteStartingX:float = 7500000#+6.371e6 #7500000
+satelliteStartingX:float = 10000000 #+6.371e6
 satelliteStartingY:float = 0
 satelliteStartingXVelocity = 0
-satelliteStartingYVelocity = 7063.877830235492
+satelliteStartingYVelocity =  6310 #8900 #5600
 
-multiplikator = 100
+multiplikator = 1
 
 deltaT:float = 60 /multiplikator
-amountOfSteps:int =1000 *multiplikator
+amountOfSteps:int = 167 *multiplikator
 printEveryNthStep:int = 100 *multiplikator
 saveToLogEveryNthStep:int = 100
